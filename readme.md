@@ -1,12 +1,29 @@
-# Set Up For Use on Local Machine (Mac & Postgres)
+# Project 2 Name
+"Meal Rep"
 
-Here's how to download and run this application on your local mac:
+# Tech Stack
+Postgres, Express, Node
 
-* Fork & Clone
-* `npm i` to install dependencies
-* create database with `createdb express_auth_development` ***OR CHANGE DB NAME TO MATCH THE NAME OF YOUR APP*** _(you'll need to make changes to `config/config.json` too)_
-* if your postgress process requires a username and password, add these to the `config/config.json` file
-* migrate models to your database with `sequelize db:migrate` (This command assumes you have the sequelize-cli installed globally. If you don't, run `npm i sequelize-cli` to install in this project.)
+# API Being Used
+Nutritionix API
+https://developer.nutritionix.com/
+
+
+# Example of req & res
+User enters name of food item and with the API returns the nutrition facts for that item including, name, picture, calories, protein, carbs.
+
+# MPV Goals
+* When users put the name of a food into a search bar the nutrition facts and pictures come up 
+* Users able to select favorite foods
+* On Home screen common foods are already listed for user convenience
+
+# Stretch Goals
+* Use interpolation or some other method to display total macros of favorites list 
+* Have different drop down menus listing the nutrition facts for different food groups 
+
+# Potential Roadblocks
+I'm not sure how well utilizing bootstrap would work with this project so a roadblock might be making it look presentable on the client side for users.
+
 
 
 
