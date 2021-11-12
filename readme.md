@@ -13,6 +13,8 @@ https://developer.nutritionix.com/
 ![wireframepg2](https://user-images.githubusercontent.com/92189229/141521121-629b7a89-e712-4149-8abb-09ad28cd4807.PNG)
 ![wireframe3](https://user-images.githubusercontent.com/92189229/141521271-95c188db-5c30-41c5-8b9c-ab647821cf16.PNG)
 
+# ERD 
+![image](https://user-images.githubusercontent.com/92189229/141525634-5f6cb6ee-3c7c-4024-b43e-27d8ad69c30b.png)
 
 # Example of req & res
 User enters name of food item and with the API returns the nutrition facts for that item including, name, picture, calories, protein, carbs.
