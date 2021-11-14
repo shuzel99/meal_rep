@@ -1,4 +1,6 @@
 require('dotenv').config()
+const nutritionix = require('nutritionix-api')
+const axios = require('axios')
 const express = require('express')
 const app = express()
 const ejsLayouts = require('express-ejs-layouts')
@@ -7,13 +9,22 @@ const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 
-
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
 // body parser middelware
 app.use(express.urlencoded({extended:false}))
+
+//set apiID & key
+const appId = '425d3159'
+const appKey = '605175cc6f2051329c74998dc68fc1d7'
+
+nutritionix.init(appId, appKey)
+
+nutritionix.natural.search('Almond').then(results => {
+    console.log(results)
+})
 
 // session middleware
 app.use(session({
@@ -40,16 +51,20 @@ app.use((req, res, next) => {
 // controllers middleware 
 app.use('/auth', require('./controllers/auth'))
 
-
-// home route
-app.get('/', (req, res)=>{
-    res.render('home')
-})
-
 // profile route
 app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
+
+// home route
+app.get('/', (req, res)=>{
+    let nutritionixURL = 'https://api.nutritionix.com/v1_1/search'
+    axios.get(nutritionixURL).then(apiResponse => {
+        let nutrition = apiResponse.data.results
+        res.render('index', {nutrition: nutrition})
+    })  
+})
+
 
 
 app.listen(3000, ()=>{
