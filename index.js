@@ -22,6 +22,8 @@ const appKey = '605175cc6f2051329c74998dc68fc1d7'
 
 nutritionix.init(appId, appKey)
 
+
+//testing for api response 
 nutritionix.natural.search('Almond').then(results => {
     console.log(results)
 })
@@ -56,16 +58,17 @@ app.get('/profile', isLoggedIn, (req, res)=>{
     res.render('profile')
 })
 
-// home route
+//main index
 app.get('/', (req, res)=>{
-    let nutritionixURL = 'https://api.nutritionix.com/v1_1/search'
+    let nutritionixURL = 'https://api.nutritionix.com/v1_1/search/'
+    //calling the API
     axios.get(nutritionixURL).then(apiResponse => {
         let nutrition = apiResponse.data.results
         res.render('index', {nutrition: nutrition})
     })  
 })
 
-
+app.use('/nutrition', require('./controllers/nutrition'))
 
 app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
