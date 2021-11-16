@@ -1,13 +1,13 @@
-<!-- <% if(results === undefined) { %>
+<% if(results === undefined) { %>
     <h3>No Items Found</h3>
     <small>Check your spelling or choose another item and try again.</small>
-<% } else { %> 
-        <% results.forEach(function(result) { %>
-            <h2><%= result.food_name %></h2>
-                <form method="POST" action="/nutrition">
-                <input hidden type="text" name="name" value="<%= result.food_name %>">
-                <button class="btn btn-primary" type="submit">Add to Food Journal</button>
-                </form>
-       <% }) %>  -->
-    
-<h1>Results</h1>
+<% } else{ %> 
+        <ul>
+            <% results.forEach(function(result) { %>
+                <li>
+                    <a href="/nutrition/<%= result.food_name%>"></a>
+                </li>
+
+           <% }) %> 
+        </ul>
+<% } %> 

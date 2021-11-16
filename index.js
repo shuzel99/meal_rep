@@ -23,10 +23,7 @@ const appKey = '605175cc6f2051329c74998dc68fc1d7'
 nutritionix.init(appId, appKey)
 
 
-//testing for api response 
-nutritionix.natural.search('Almond').then(results => {
-    console.log(results)
-})
+
 
 // session middleware
 app.use(session({
@@ -67,6 +64,7 @@ app.get('/', (req, res)=>{
         res.render('index', {nutrition: nutrition})
     })  
 })
+
 
 app.use('/nutrition', require('./controllers/nutrition'))
 

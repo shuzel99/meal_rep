@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "Shuzel1!",
-    "database": "mealrep",
+    "database": "meal_rep_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
