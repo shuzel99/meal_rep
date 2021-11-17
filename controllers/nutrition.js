@@ -22,7 +22,16 @@ router.get('/results', function(req, res){
         let servingsz = apiResults.foods[0].serving_qty
         let servingut = apiResults.foods[0].serving_unit
         let photo = apiResults.foods[0].photo.highres
-        res.render('results', {name: name, servingsz: servingsz, servingut: servingut, photo: photo})
+        let servingGrams = apiResults.foods[0].serving_weight_grams
+        let calories = apiResults.foods[0].nf_calories
+        let fat = apiResults.foods[0].nf_total_fat
+        let cholesterol = apiResults.foods[0].nf_cholesterol
+        let sodium = apiResults.foods[0].nf_sodium
+        let carbs = apiResults.foods[0].nf_total_carbohydrate
+        let sugar = apiResults.foods[0].nf_sugars
+        let protein = apiResults.foods[0].nf_protein
+        res.render('results', {name: name, servingsz: servingsz, servingut: servingut, photo: photo, servingGrams: servingGrams, 
+            calories: calories, fat: fat, cholesterol: cholesterol, sodium: sodium, carbs: carbs, sugar: sugar, protein: protein})
     })
     .catch(error => {
         console.log(error)
