@@ -1,11 +1,11 @@
 <%// render each food item here %>
 <% //write code to replace null value with zero %> 
-<% const title = name.split(" ") %> 
-<% for (let i = 0; i < title.length; i++) { %>
-    <% title[i] = title[i][0].toUpperCase() + title[i].substring(1) %> 
-<% } %> 
-<% title.join("  ") %> 
-<h1> <%= title %></h1>
+<% //const title = name.split(" ") %> 
+<% //for (let i = 0; i < title.length; i++) { %>
+    <% //title[i] = title[i][0].toUpperCase() + title[i].substring(1) %> 
+<%// } %> 
+<% //title.join("") %> 
+<h1> <%= name[0].toUpperCase() + name.substring(1) %></h1>
 
 <img src=" <%= photo %> " height="100px">
 <p>
