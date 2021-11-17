@@ -67,6 +67,7 @@ app.get('/', (req, res)=>{
 
 
 app.use('/nutrition', require('./controllers/nutrition'))
+app.use('/entry', require('./controllers/entry'))
 
 app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)

@@ -19,5 +19,17 @@
    <b>Protein: </b> <%= protein %>g <br> 
 </p>   
 
- 
+ <form method="POST" action="/entry/logFood">
+    <input hidden type="text" name="food_name" value='<%= name %>'>
+    <input hidden type="text" name="photo" value='<%= photo %>'>
+    <input hidden type="text" name="serving_qty" value='<%= servingsz %>'>
+    <input hidden type="text" name="serving_unit" value='<%= servingut %>'>
+    <input hidden type="text" name="serving_weight_grams" value='<%= servingGrams %>'>
+    <input hidden type="text" name="nf_calories" value='<%= calories %>'>
+    <input hidden type="text" name="nf_total_fat" value='<%= fat %>'>
+    <input hidden type="text" name="nf_cholesterol" value='<%= cholesterol %>'>
+    <input hidden type="text" name="nf_sugars" value='<%= sugar %>'>
+    <input hidden type="text" name="nf_protein" value='<%= protein %>'>
+    <button type="submit">Add to Daily Log</button>
+</form>
 
