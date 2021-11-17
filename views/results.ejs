@@ -1,13 +1,9 @@
-<% if(results === undefined) { %>
-    <h3>No Items Found</h3>
-    <small>Check your spelling or choose another item and try again.</small>
-<% } else{ %> 
-        <ul>
-            <% results.forEach(function(result) { %>
-                <li>
-                    <a href="/nutrition/<%= result.food_name%>"></a>
-                </li>
+<%// render each food item here %>
+<h1> <%= name %> </h1>
+<img src=" <%= photo %> " height="100px">
+<h3>
+    <%= servingsz %> 
+ </h3>   
 
-           <% }) %> 
-        </ul>
-<% } %> 
+ 
+
