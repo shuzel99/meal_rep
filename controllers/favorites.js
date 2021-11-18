@@ -12,7 +12,6 @@ router.get('/', (req, res) => {
 })
 
 
-
 //post route to save the entry
 router.post('/addFave', (req, res) => {
     const data = JSON.parse(JSON.stringify(req.body))
@@ -26,6 +25,30 @@ router.post('/addFave', (req, res) => {
     })
     .catch(error => {
         console.log(error)
+    })
+})
+
+// deletion
+router.delete('/:id', (req, res) => {
+    db.meal.destroy({
+        where: {id: req.params.id}
+    })
+    .then(deletedItem => {
+        res.redirect('/favorites')
+    })
+    .catch(error =>{
+        console.error
+    })
+})
+
+//show route for favorite
+router.get('/:id', (req, res) => {
+    console.log("this is the fave id\n", req.params.id)
+    db.food.findOne({
+        where: { id: req.params.id }
+    })
+    .then(foundFave => {
+        res.render('foundFave', { name: foundFave.food_name })
     })
 })
  
