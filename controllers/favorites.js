@@ -6,23 +6,23 @@ const { route } = require('./auth')
 //index route to see all logged items
 router.get('/', (req, res) => {
     db.food.findAll()
-        .then(entry => {
-            res.render('indexEntries', {results: entry})
+        .then(fave => {
+            res.render('indexFavorite', {results: fave})
         })
 })
 
 
 
 //post route to save the entry
-router.post('/logFood', (req, res) => {
+router.post('/addFave', (req, res) => {
     const data = JSON.parse(JSON.stringify(req.body))
-    console.log('this is data', data)
+    // console.log('this is data', data.food_name)
     db.food.create({
-        name: data.food_name
+        food_name: data.food_name
     })
     .then(createdLog => {
         console.log('db instance created: \n', createdLog)
-        res.redirect(`/entry/${createdLog.id}`)
+        res.redirect(`/favorites/${createdLog.id}`)
     })
     .catch(error => {
         console.log(error)

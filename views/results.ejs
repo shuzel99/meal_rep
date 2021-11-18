@@ -19,7 +19,7 @@
    <b>Protein: </b> <%= protein %>g <br> 
 </p>   
 
- <form method="POST" action="/entry/logFood">
+ <form method="POST" action="/favorites/addFave">
     <input hidden type="text" name="food_name" value='<%= name %>'>
     <input hidden type="text" name="photo" value='<%= photo %>'>
     <input hidden type="text" name="serving_qty" value='<%= servingsz %>'>
