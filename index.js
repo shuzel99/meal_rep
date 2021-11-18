@@ -10,7 +10,7 @@ const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const methodOverride = require('method-override')
 
-//allows you to override methods with a query parameter
+//allows you to use put and delete
 app.use(methodOverride('_method'))
 // views (ejs and layouts) set up
 app.set('view engine', 'ejs')
@@ -24,8 +24,6 @@ const appId = '425d3159'
 const appKey = '605175cc6f2051329c74998dc68fc1d7'
 
 nutritionix.init(appId, appKey)
-
-
 
 
 // session middleware
@@ -76,3 +74,7 @@ app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
 })
+//bootstrap to make it look cute
+//ask question about data being saved only for the use that's logged in 
+//create meals controller and views 
+//ask how to make meals have customizable name
