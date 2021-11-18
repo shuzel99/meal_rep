@@ -1,0 +1,10 @@
+<h1>Logged Foods</h1>
+
+<% results.forEach(result => { %>
+<h3>
+   <a href="/nutrition/results?itemSearch=<%= result.food_name %>"><%= result.food_name %></a>  
+</h3>
+<form action="/favorites/<%= result.id %>?_method=DELETE" method="post">
+   <button type="submit">Remove From Favorites</button>
+</form>
+<% }) %> 

@@ -7,7 +7,7 @@ const { route } = require('./auth')
 router.get('/', (req, res) => {
     db.food.findAll()
         .then(fave => {
-            res.render('indexFavorite', {results: fave})
+            res.render('mealrep/indexFavorite', {results: fave})
         })
 })
 
@@ -30,13 +30,14 @@ router.post('/addFave', (req, res) => {
 
 // deletion
 router.delete('/:id', (req, res) => {
-    db.meal.destroy({
+    db.food.destroy({
         where: {id: req.params.id}
     })
     .then(deletedItem => {
+        console.log("you deleted", deletedItem)
         res.redirect('/favorites')
     })
-    .catch(error =>{
+    .catch(error => {
         console.error
     })
 })
@@ -48,7 +49,7 @@ router.get('/:id', (req, res) => {
         where: { id: req.params.id }
     })
     .then(foundFave => {
-        res.render('foundFave', { name: foundFave.food_name })
+        res.render('mealrep/foundFave', { name: foundFave.food_name, photo: foundFave.photo})
     })
 })
  

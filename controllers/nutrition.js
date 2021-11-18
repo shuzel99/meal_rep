@@ -30,7 +30,7 @@ router.get('/results', function(req, res){
         let carbs = apiResults.foods[0].nf_total_carbohydrate
         let sugar = apiResults.foods[0].nf_sugars
         let protein = apiResults.foods[0].nf_protein
-        res.render('results', {name: name, servingsz: servingsz, servingut: servingut, photo: photo, servingGrams: servingGrams, 
+        res.render('mealrep/results', {name: name, servingsz: servingsz, servingut: servingut, photo: photo, servingGrams: servingGrams, 
             calories: calories, fat: fat, cholesterol: cholesterol, sodium: sodium, carbs: carbs, sugar: sugar, protein: protein})
     })
     .catch(error => {
