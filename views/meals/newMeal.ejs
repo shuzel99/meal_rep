@@ -1,0 +1,26 @@
+<h1>Create a new Meal</h1>
+
+
+
+<form action="/meals" method="POST">
+<div class="form-group">
+   <label for="name">Meal Name</label>
+   <input type="string" class="form-control" id="name" name="name" required>
+</div>
+
+<form id="searchForm" method="GET" action="/meal/newMeal">
+   <label for="ingredient input">Search by Ingredients</label>
+   <input id="ingredient input" name="ingredientSearch" type="text">
+   <input type="submit">
+</form>
+
+<div class="form-group">
+   <label for="content">Notes</label>
+   <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+</div>
+
+<input type="submit">
+
+
+
+</form>
