@@ -1,18 +1,19 @@
 <h1>Create a new Meal</h1>
 
 
-
 <form action="/meals" method="POST">
 <div class="form-group">
    <label for="name">Meal Name</label>
-   <input type="string" class="form-control" id="name" name="name" required>
+   <input type="text" class="form-control" id="name" name="name" required>
 </div>
 
-<form id="searchForm" method="GET" action="/meal/newMeal">
-   <label for="ingredient input">Search by Ingredients</label>
-   <input id="ingredient input" name="ingredientSearch" type="text">
-   <input type="submit">
-</form>
+<div class="form-group">
+   <label for="ingredients">Ingredients</label>
+   <select name="ingredientId" id="ingredient" class="form-control" required multiple>
+   <% ingredients.forEach(ingredient => { %>
+      <option value="<% ingredient.name %>"><%= ingredient.food_name %> </option>
+  <% }) %>
+</select>  
 
 <div class="form-group">
    <label for="content">Notes</label>
@@ -24,8 +25,5 @@
 
 </form>
 
-<p>Name: <%= name %> </p>
 
-<form method="POST" action="/meal/newMeal">
-   <input hidden type="text" name="food_name" value="<%= name %> ">
-</form>
+
