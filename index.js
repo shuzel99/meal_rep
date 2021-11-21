@@ -70,11 +70,14 @@ app.get('/', (req, res)=>{
 app.use('/nutrition', require('./controllers/nutrition'))
 app.use('/favorites', require('./controllers/favorites'))
 
+
 app.listen(3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
 })
 //bootstrap to make it look cute
-//ask question about data being saved only for the use that's logged in 
+ 
 //create meals controller and views 
 //ask how to make meals have customizable name
+//create search bar for meals and ingredients
+//change post routes to only be for meals and look at blog app to add meal names and descriptions and comments?

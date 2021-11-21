@@ -1,0 +1,11 @@
+<h1>Your Meals</h1>
+<h3><a href="/">Home</a></h3>
+
+<% results.forEach(result => { %>
+<h3>
+   <a href="/meal/results?itemSearch=<%= result.name %>"><%= result.name %></a>  
+</h3>
+<form action="/meal/<%= result.id %>?_method=DELETE" method="post">
+   <button type="submit">Remove From Meals</button>
+</form>
+<% }) %>
