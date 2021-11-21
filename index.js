@@ -78,6 +78,8 @@ app.listen(3000, ()=>{
 })
 //bootstrap to make it look cute
 //create meals controller and views 
-//ask how to make meals have customizable name
-//create search bar for meals and ingredients
-//change post routes to only be for meals and look at blog app to add meal names and descriptions and comments?
+//save serached ingredients somewhere seperate from favorites 
+//view comments and authors in blog pulse for drop down menu
+//in create new meals create a drop down menu or clickable function to add saved ingredients to a meal 
+//add notes to the meal if you want
+//save it 

@@ -27,9 +27,12 @@ router.post('/', isLoggedIn, (req, res) => {
 })
 
 router.get('/newMeal', isLoggedIn, (req, res) => {
-    db.food.findAll()
-   .then(foods => {
-    res.render('meals/newMeal', {foods: foods})
+    let ingredient = req.query.ingredientSearch
+    console.log(ingredient)
+    nutritionix.natural.search(ingredient)
+   .then(apiResults => {
+    let name = apiResults.foods[0].food_name
+    res.render('meals/newMeal', {name: name})
    })
    .catch(error => {
     console.log(error)
