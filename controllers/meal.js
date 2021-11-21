@@ -31,7 +31,7 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
    db.food.findAll()
    .then(ingredients => {
     console.log('these are ingredients', ingredients)
-    console.log('this is curry goat', ingredients[0].food_name)
+    // console.log('this is curry goat', ingredients[0].food_name)
 
        res.render('meals/newMeal', {ingredients: ingredients})
    })
@@ -40,7 +40,7 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
    })
 })
 
-//after add to meals button is clicked
+//display individual meal name notes and foods
 router.get('/:id', (req, res) => {
     console.log("this is the meal id\n", req.params.id)
     db.meal.findOne({
@@ -48,7 +48,8 @@ router.get('/:id', (req, res) => {
         include: [db.food]
     })
     .then(foundMeal => {
-        res.render('meals/foundMeal', { foundMeal: foundMeal})
+    console.log('this is found meal', foundMeal)
+        res.render('meals/show', { foundMeal: foundMeal})
     })
     .catch(error => {
         console.log(error)

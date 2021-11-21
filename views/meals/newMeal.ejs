@@ -1,7 +1,7 @@
 <h1>Create a new Meal</h1>
 
 
-<form action="/meals" method="POST">
+<form action="/meal" method="POST">
 <div class="form-group">
    <label for="name">Meal Name</label>
    <input type="text" class="form-control" id="name" name="name" required>
@@ -9,7 +9,7 @@
 
 <div class="form-group">
    <label for="ingredients">Ingredients</label>
-   <select name="ingredientId" id="ingredient" class="form-control" required multiple>
+   <select name="ingredients" id="ingredients" class="form-control" required multiple>
    <% ingredients.forEach(ingredient => { %>
       <option value="<% ingredient.name %>"><%= ingredient.food_name %> </option>
   <% }) %>
