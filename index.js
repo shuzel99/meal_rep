@@ -76,7 +76,7 @@ app.listen(3000, ()=>{
     console.log("auth_practice running on port 3000")
 })
 //bootstrap to make it look cute
- 
+ //restorative
 //create meals controller and views 
 //ask how to make meals have customizable name
 //create search bar for meals and ingredients
