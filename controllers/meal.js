@@ -55,7 +55,7 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
 router.get('/edit/:id', (req, res)=> {
     let meals = fs.readFileSync('./meals.json')
     let mealData = JSON.parse(meals)
-    console.log('this is mealData', mealData)
+    console.log('this is mealData', mealData)//unexpected end of JSON idk this can go to hell
     res.render('meals/edit.ejs', {mealId: req.params.idx, dino: mealData[req.params.idx]})
 })
 
