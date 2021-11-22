@@ -1,9 +1,13 @@
 <h1>Logged Meals</h1>
 <h3><a href="/">Home</a></h3>
+<h3><a href="/meal/newMeal">Create a New Meal</a></h3>
 
 <% meals.forEach(meal => { %>
 <h3>
-   <%= meal.dataValues.name %>
+  <a href="/meal/<%= meal.dataValues.id %> "><%= meal.dataValues.name %></a>
 </h3>
-
+<a href="/meal/edit/<%= meal.dataValues.id %>">Edit</a>
+<form action="/meal/<%= meal.dataValues.id %>?_method=DELETE" method="post">
+   <button type="submit">Remove From Meals</button>
+</form>
 <% }) %> 

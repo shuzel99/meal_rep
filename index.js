@@ -9,6 +9,7 @@ const passport = require('./config/ppConfig')
 const flash = require('connect-flash')
 const isLoggedIn = require('./middleware/isLoggedIn')
 const methodOverride = require('method-override')
+const fs = require('fs')
 
 //allows you to use put and delete
 app.use(methodOverride('_method'))
@@ -77,9 +78,4 @@ app.listen(3000, ()=>{
     console.log("auth_practice running on port 3000")
 })
 //bootstrap to make it look cute
-//create meals controller and views 
-//save serached ingredients somewhere seperate from favorites 
-//view comments and authors in blog pulse for drop down menu
-//in create new meals create a drop down menu or clickable function to add saved ingredients to a meal 
-//add notes to the meal if you want
-//save it 
+//workout edit and update routes

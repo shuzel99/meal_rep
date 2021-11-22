@@ -4,17 +4,18 @@ const router = express.Router()
 const db = require('../models')
 const { route } = require('./auth')
 const nutritionix = require('nutritionix-api')
+fs = require('fs')
 
 const appId = '425d3159'
 const appKey = '605175cc6f2051329c74998dc68fc1d7'
 
 nutritionix.init(appId, appKey)
 
-//shows all logged meal//does NOT work 
+//shows all logged meal
 router.get('/all', isLoggedIn, (req, res) => {
     db.meal.findAll() 
     .then(meal => {
-        console.log('this is meal', meal) //returns empty array. great
+        console.log('this is meal', meal) 
             res.render('meals/indexMeal', {meals: meal})
         })
 })
@@ -48,6 +49,40 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
    .catch(error => {
     console.log(error)
    })
+})
+
+//edit route for meal 
+router.get('/edit/:id', (req, res)=> {
+    let meals = fs.readFileSync('./meals.json')
+    let mealData = JSON.parse(meals)
+    console.log('this is mealData', mealData)
+    res.render('meals/edit.ejs', {mealId: req.params.idx, dino: mealData[req.params.idx]})
+})
+
+//update meal
+router.put('/:id', (req, res)=> {
+    let meals = fs.readFileSync('./meals.json')
+    let mealData = JSON.parse(meals)
+
+    mealData[req.params.idx].name = req.body.name
+    mealData[req.params.idx].content = req.body.content
+
+    fs.writeFileSync('./meals.json', JSON.stringify(mealData))
+    res.redirect('meals/indexMeal')
+})
+
+// delete meal 
+router.delete('/:id', (req, res) => {
+    db.meal.destroy({
+        where: {id: req.params.id}
+    })
+    .then(deletedMeal => {
+        console.log("you deleted", deletedMeal)
+        res.redirect('/meal/all')
+    })
+    .catch(error => {
+        console.error
+    })
 })
 
 //display individual meal name notes and foods
