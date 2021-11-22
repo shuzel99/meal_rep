@@ -13,7 +13,7 @@ router.get('/', isLoggedIn, (req, res) => {
             res.render('favorites/indexFavorite', {results: fave})
         })
 })
-//check current userId select * where fave userid = userId
+
 
 //post route to save the entry
 router.post('/addFave', isLoggedIn, (req, res) => {

@@ -10,6 +10,15 @@ const appKey = '605175cc6f2051329c74998dc68fc1d7'
 
 nutritionix.init(appId, appKey)
 
+//shows all logged meal//does NOT work 
+router.get('/all', isLoggedIn, (req, res) => {
+    db.meal.findAll() 
+    .then(meal => {
+        console.log('this is meal', meal) //returns empty array. great
+            res.render('meals/indexMeal', {meals: meal})
+        })
+})
+
 // Create a new meal
 router.post('/', isLoggedIn, (req, res) => {
     // const data = JSON.parse(JSON.stringify(req.body))
@@ -27,6 +36,7 @@ router.post('/', isLoggedIn, (req, res) => {
 })
 })
 
+//show form for making new meal
 router.get('/newMeal', isLoggedIn, (req, res) => {
    db.food.findAll()
    .then(ingredients => {
@@ -48,7 +58,7 @@ router.get('/:id', (req, res) => {
         include: [db.food]
     })
     .then(foundMeal => {
-    console.log('this is found meal', foundMeal)
+    console.log('this is found meal', foundMeal.dataValues.name)
         res.render('meals/show', { foundMeal: foundMeal})
     })
     .catch(error => {
