@@ -56,7 +56,7 @@ user.addHook('beforeCreate', async (pendingUser, options) => {
   await bcrypt.hash(pendingUser.password, 10)
   .then(hashedPassword=>{
     console.log(`${pendingUser.password} became ---> ${hashedPassword}`)
-    pendingUser.password - hashedPassword
+    pendingUser.password = hashedPassword
   })
 })
 
