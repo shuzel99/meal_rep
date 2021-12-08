@@ -10,20 +10,32 @@
 
 <div class="form-group">
    <label for="ingredients">Ingredients</label>
-   <select name="ingredients" id="ingredients" class="form-control" required multiple>
+   <select name="ingredients" id="ingredients" class="form-control"  multiple>
    <% ingredients.forEach(ingredient => { %>
-      <option value="<% ingredient.name %>"><%= ingredient.food_name %> </option>
+      <option value="<%= ingredient.food_name %>"><%= ingredient.food_name %> </option>
   <% }) %>
-</select>  
+</select> 
 
 <div class="form-group">
    <label for="content">Notes</label>
-   <textarea type="text" class="form-control" id="content" name="content" required></textarea>
+   <textarea type="text" class="form-control" id="content" name="content" ></textarea>
 </div>
 
 <input type="submit">
 
 </form>
+
+<p>The value of the ingredient selected is:
+   <span class="output"></span>
+</p> 
+
+<button onclick="getIngredient()">Check ingredient</button>
+
+<% function getOption() {
+   selectElement = document.querySelector('#ingredients');
+   output = selectElement.value;
+   document.querySelector('.output').textContent = output;
+} %>
 
 
 

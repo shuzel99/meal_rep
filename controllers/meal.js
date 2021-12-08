@@ -23,9 +23,11 @@ router.get('/all', isLoggedIn, (req, res) => {
 // Create a new meal
 router.post('/', isLoggedIn, (req, res) => {
     // const data = JSON.parse(JSON.stringify(req.body))
+    console.log('FOOD FORM: ADDED NEW', req.body)
     db.meal.create({
         name: req.body.name,
         content: req.body.content,
+        ingredients: req.body.content, //just added
         userId: req.body.userId,
         where: {userId: res.locals.currentUser.id}
     })
@@ -93,7 +95,7 @@ router.get('/:id', (req, res) => {
         include: [db.food]
     })
     .then(foundMeal => {
-    console.log('this is found meal', foundMeal.dataValues.name)
+    console.log('this is found meal', foundMeal)
         res.render('meals/show', { foundMeal: foundMeal})
     })
     .catch(error => {
