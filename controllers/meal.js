@@ -27,7 +27,7 @@ router.post('/', isLoggedIn, (req, res) => {
     db.meal.create({
         name: req.body.name,
         content: req.body.content,
-        ingredients: req.body.content, //just added
+        ingredient: req.body.ingredients, //just added
         userId: req.body.userId,
         where: {userId: res.locals.currentUser.id}
     })
