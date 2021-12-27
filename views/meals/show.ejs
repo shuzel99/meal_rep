@@ -1,6 +1,8 @@
 
 <h1><%= foundMeal.name %></h1>
 
-<p><%= foundMeal.ingredients %> </p>
+<% for(let i = 0; i < foundMeal.ingredient.length; i++) { %>
+    <ul><%= foundMeal.ingredient[i] %></ul>
+<% } %> 
 
 <p><%= foundMeal.content %> </p>
