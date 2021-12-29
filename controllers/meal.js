@@ -54,7 +54,9 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
 
 //edit route for meal 
 router.get('/edit/:idx', (req, res)=> {
-   db.meal.findAll()
+   db.meal.findOne({
+      where: {id: req.params.idx}
+   })
     .then(createdMeals => {
         console.log('this is meals', createdMeals)
         res.render('meals/edit', {meal: createdMeals[req.params.idx], mealId: req.params.idx})
@@ -68,7 +70,9 @@ router.get('/edit/:idx', (req, res)=> {
 
 //update meal
 router.put('/:idx', (req, res)=> {
-   db.meal.findAll()
+   db.meal.findAll({
+        where: {id: req.params.id}
+   })
     .then(meal => {
         meal[req.params.idx].name = req.body.name
         meal[req.params.idx].content = req.body.content 
