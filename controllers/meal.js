@@ -45,7 +45,6 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
    .then(ingredients => {
     console.log('these are ingredients', ingredients)
     // console.log('this is curry goat', ingredients[0].food_name)
-
        res.render('meals/newMeal', {ingredients: ingredients})
    })
    .catch(error => {
@@ -54,23 +53,33 @@ router.get('/newMeal', isLoggedIn, (req, res) => {
 })
 
 //edit route for meal 
-router.get('/edit/:id', (req, res)=> {
-    let meals = fs.readFileSync('./meals.json')
-    let mealData = JSON.parse(meals)
-    console.log('this is mealData', mealData)//unexpected end of JSON idk this can go to hell
-    res.render('meals/edit.ejs', {mealId: req.params.idx, dino: mealData[req.params.idx]})
+router.get('/edit/:idx', (req, res)=> {
+   db.meal.findAll()
+    .then(createdMeals => {
+        console.log('this is meals', createdMeals)
+        res.render('meals/edit', {meal: createdMeals[req.params.idx], mealId: req.params.idx})
+       // console.log("this is the ingredient arrray", ingredients)
+    })
+    .catch(error => {
+        console.log(error)
+       })
 })
 
+
 //update meal
-router.put('/:id', (req, res)=> {
-    let meals = fs.readFileSync('./meals.json')
-    let mealData = JSON.parse(meals)
+router.put('/:idx', (req, res)=> {
+   db.meal.findAll()
+    .then(meal => {
+        meal[req.params.idx].name = req.body.name
+        meal[req.params.idx].content = req.body.content 
+        console.log("this is req.body.name", req.body.name)
+        res.redirect('/meal/all')
+    })
+    .catch(error => {
+        console.log(error)
+    })
 
-    mealData[req.params.idx].name = req.body.name
-    mealData[req.params.idx].content = req.body.content
-
-    fs.writeFileSync('./meals.json', JSON.stringify(mealData))
-    res.redirect('meals/indexMeal')
+   
 })
 
 // delete meal 
@@ -83,7 +92,7 @@ router.delete('/:id', (req, res) => {
         res.redirect('/meal/all')
     })
     .catch(error => {
-        console.error
+        console.log(error)
     })
 })
 

@@ -1,17 +1,16 @@
-<form action="/meal/<%= mealId %>/?_method=PUT" method="POST">
+<form method="POST" action="/meal/<%= mealId %>/?_method=PUT">
     <div class="form-group">
        <label for="name">Meal Name</label>
        <input type="text" class="form-control" id="name" name="name" value="<%= meal.name %> " required>
     </div>
     
-    <div class="form-group">
-       <label for="ingredients">Ingredients</label>
-       <select name="ingredients" id="ingredients" class="form-control" required multiple>
-       <% ingredients.forEach(ingredient => { %>
-          <option value="<% ingredient.name %>"><%= ingredient.food_name %> </option>
-      <% }) %>
-    </select>  
-    
+    <!-- <div  class="form-group">
+      <label for="ingredients">Ingredients</label>
+      <select name="ingredients" id="ingredients" class="form-control" required multiple>
+      <% //ingredients.forEach(ingredient => { %>
+         <option value="<% // ingredient.name %>"><%= // ingredient.food_name %> </option>
+     <% //}) %>
+   </select>   -->
     <div class="form-group">
        <label for="content">Notes</label>
        <textarea type="text" class="form-control" id="content" name="content" value="<%= meal.content  %> " required></textarea>
