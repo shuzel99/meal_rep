@@ -15,7 +15,7 @@ nutritionix.init(appId, appKey)
 router.get('/all', isLoggedIn, (req, res) => {
     db.meal.findAll() 
     .then(meal => {
-        console.log('this is meal', meal) 
+        //console.log('this is meal', meal) 
             res.render('meals/indexMeal', {meals: meal})
         })
 })
@@ -58,7 +58,7 @@ router.get('/edit/:idx', (req, res)=> {
       where: {id: req.params.idx}
    })
     .then(createdMeals => {
-        console.log('this is meals', createdMeals)
+        //console.log('this is meals', createdMeals)
         res.render('meals/edit', {meal: createdMeals[req.params.idx], mealId: req.params.idx})
        // console.log("this is the ingredient arrray", ingredients)
     })
@@ -70,13 +70,16 @@ router.get('/edit/:idx', (req, res)=> {
 
 //update meal
 router.put('/:idx', (req, res)=> {
-   db.meal.findAll({
-        where: {id: req.params.id}
-   })
+    db.meal.update(
+        {name: req.body.name,
+        content: req.body.content},  
+        {where: {id: req.params.idx}}
+     )
     .then(meal => {
-        meal[req.params.idx].name = req.body.name
-        meal[req.params.idx].content = req.body.content 
-        console.log("this is req.body.name", req.body.name)
+        console.log("THIS IS MEAL IN PUT", meal)
+        
+       // console.log("this is req.body.name", req.body.name)
+
         res.redirect('/meal/all')
     })
     .catch(error => {
@@ -102,13 +105,13 @@ router.delete('/:id', (req, res) => {
 
 //display individual meal name notes and foods
 router.get('/:id', (req, res) => {
-    console.log("this is the meal id\n", req.params.id)
+    //console.log("this is the meal id\n", req.params.id)
     db.meal.findOne({
         where: { id: req.params.id },
         include: [db.food]
     })
     .then(foundMeal => {
-    console.log('this is found meal', foundMeal)
+    // console.log('this is found meal', foundMeal)
         res.render('meals/show', { foundMeal: foundMeal})
     })
     .catch(error => {
