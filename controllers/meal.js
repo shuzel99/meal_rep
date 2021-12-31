@@ -4,6 +4,7 @@ const router = express.Router()
 const db = require('../models')
 const { route } = require('./auth')
 const nutritionix = require('nutritionix-api')
+const { create } = require('domain')
 fs = require('fs')
 
 const appId = '425d3159'
@@ -58,8 +59,9 @@ router.get('/edit/:idx', (req, res)=> {
       where: {id: req.params.idx}
    })
     .then(createdMeals => {
-        //console.log('this is meals', createdMeals)
-        res.render('meals/edit', {meal: createdMeals[req.params.idx], mealId: req.params.idx})
+        let parsedMeals = createdMeals.dataValues
+        console.log('this is meals data', createdMeals.dataValues)
+        res.render('meals/edit', {meal: parsedMeals, mealId: req.params.idx})
        // console.log("this is the ingredient arrray", ingredients)
     })
     .catch(error => {
@@ -77,9 +79,6 @@ router.put('/:idx', (req, res)=> {
      )
     .then(meal => {
         console.log("THIS IS MEAL IN PUT", meal)
-        
-       // console.log("this is req.body.name", req.body.name)
-
         res.redirect('/meal/all')
     })
     .catch(error => {
