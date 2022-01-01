@@ -1,13 +1,7 @@
-<%// render each food item here %>
-<% //write code to replace null value with zero %> 
-<% //const title = name.split(" ") %> 
-<% //for (let i = 0; i < title.length; i++) { %>
-    <% //title[i] = title[i][0].toUpperCase() + title[i].substring(1) %> 
-<%// } %> 
-<% //title.join("") %> 
-<h1> <%= name[0].toUpperCase() + name.substring(1) %></h1>
+<div class="transparentDiv" id="nutritionFacts">
+<h1 style="text-decoration: underline;"> <%= name[0].toUpperCase() + name.substring(1) %></h1>
 
-<img src=" <%= photo %> " height="100px">
+<img src=" <%= photo %> " height="120px">
 <p>
    <b>Serving Size:</b> <%= servingsz %> <%= servingut %> <b>/</b> <%= servingGrams %>g <br>
    <b>Calories: </b><%= calories %>g <br>
@@ -30,6 +24,6 @@
     <input hidden type="text" name="nf_cholesterol" value='<%= cholesterol %>'>
     <input hidden type="text" name="nf_sugars" value='<%= sugar %>'>
     <input hidden type="text" name="nf_protein" value='<%= protein %>'>
-    <button type="submit">Add to Favorites</button>
+    <button class="submitButton" type="submit">Add to Favorites</button>
 </form>
-
+</div>

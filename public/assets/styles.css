@@ -20,8 +20,7 @@
     display: flex;
     background-image: url("https://i.postimg.cc/hvTpYN0d/salad-image.jpg") ;
     background-size: cover;
-    min-height: 94.5vh;
- 
+    min-height: 94.5vh; 
 }
 
 .navLink { 
@@ -29,7 +28,7 @@
     text-decoration: none;
     float: left;
     padding-right: 12px;
-    width: 20%;
+    width: 25%;
     text-align: center;
 }
 
@@ -41,37 +40,61 @@
 
 body {
     font-family: 'DM Serif Display', serif;
+    background-color: #F7B378;
 }
 
-#searchFoodForm {
+.transparentDiv {
     position: relative;
     border-radius: 25px;
     border: 4px solid #bc4b51;
     padding: 20px;
     font-size: 40pt;
     width: 20em;
-    height: 40vh;
+    min-height: fit-content;
     background-color: rgba(255, 255, 255, 0.5);
     margin: auto;
     top: 50%;
     text-align: center;
-    /* display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(0, -50%);
-    font-size: 30pt;   */
-    /* justify-content: center;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    font-size: 20pt;   */ 
 }
 
-#submitButton{
+.submitButton{
+    border-radius: 10px;
+    border: none;
     height: 55pt;
     font-size: 30pt;
     color: blanchedalmond;
     background-color: #bc4b51;
 }
+
+.submitButton:hover{
+    background-color: #b43e44 ;
+}
+
+#nutritionFacts{
+    font-size: 25pt;
+    margin-top: 3%;
+}
+
+#removeButt{
+    font-size: 20pt;
+}
+
+.logged{
+    padding-bottom: 4%;
+}
+#removeFrmMeal{
+    font-size: 20pt;
+}
+#editButt{
+    font-size: 25pt;
+    margin-right: 3%;
+    height: 55pt;
+    padding: 10pt;
+    margin-top: auto;
+}
+#edit{
+    display: flex;
+    justify-content: center;
+}
+
+

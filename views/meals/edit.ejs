@@ -1,3 +1,4 @@
+<div style="margin-top: 2%;" class="transparentDiv">
 <form method="POST" action="/meal/<%= mealId %>/?_method=PUT">
     <div class="form-group">
        <label for="name">Meal Name</label>
@@ -16,6 +17,7 @@
        <input type="text" class="form-control" id="content" name="content" value="<%= meal.content %>" >
     </div>
     
-    <input type="submit" value="Update Meal">
+    <input class="submitButton" type="submit" value="Update Meal">
     
     </form>
+   </div>

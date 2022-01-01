@@ -1,12 +1,15 @@
-<h1>Logged Foods</h1>
-<h3><a href="/">Home</a></h3>
-<h3><a href="/meal/newMeal">Create a Meal</a></h3>
-
-<% results.forEach(result => { %>
-<h3>
-   <a href="/nutrition/results?itemSearch=<%= result.food_name %>"><%= result.food_name %></a>  
-</h3>
-<form action="/favorites/<%= result.id %>?_method=DELETE" method="post">
-   <button type="submit">Remove From Favorites</button>
-</form>
-<% }) %> 
+<h1 style="text-align: center; margin-top: 2%;">Logged Foods</h1>
+<div class="transparentDiv">
+   <h3><a style="color: black; text-decoration: underline; font-size: 30pt;" href="/meal/newMeal">Create a Meal</a></h3>
+      
+      <% results.forEach(result => { %>
+         <div class="logged"></div>
+      <h3>
+         <a style="color: black;font-size: 30pt;" href="/nutrition/results?itemSearch=<%= result.food_name %>"><%= result.food_name %></a>  
+      </h3>
+      <form action="/favorites/<%= result.id %>?_method=DELETE" method="post">
+         <button id="removeButt" class="submitButton"type="submit">Remove From Favorites</button>
+      </form>
+      <% }) %> 
+      </div>
+</div>
