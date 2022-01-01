@@ -6,6 +6,10 @@
     overflow: auto;
     font-size: 24pt;
 }
+.title{
+    text-decoration: underline;
+    color: black;
+}
 
 #mealRepLogo{
     position: absolute;
@@ -41,6 +45,9 @@
 body {
     font-family: 'DM Serif Display', serif;
     background-color: #F7B378;
+}
+#divSpaceFrmTop{
+    margin-top: 3%;
 }
 
 .transparentDiv {
@@ -96,5 +103,16 @@ body {
     display: flex;
     justify-content: center;
 }
+.loggedItems{
+    text-decoration: none;
+    color: black;
+}
 
+.titleOutsideDiv {
+    text-align: center;
+    margin-top: 2%;
 
+}
+#ingredientList{
+    text-align: center;
+}

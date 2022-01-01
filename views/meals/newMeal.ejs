@@ -1,6 +1,6 @@
-<h1 style="text-align: center; margin-top: 2%;">Create a new Meal</h1>
+<h1 class="titleOutsideDiv">Create a new Meal</h1>
 <div class="transparentDiv">
-   <h3><a style="text-decoration: underline; color: black;" href="/meal/all">View Saved Meals</a></h3>
+   <p><a class="title" href="/meal/all">View Saved Meals</a></p>
 
    <form action="/meal" method="POST">
    <div class="form-group">
@@ -10,7 +10,7 @@
 
    <div class="form-group">
       <label for="ingredients">Ingredients:</label>
-      <select style="text-align: center;" name="ingredients" id="ingredients" class="form-control" multiple>
+      <select id="ingredientList" name="ingredients" id="ingredients" class="form-control" multiple>
       <% ingredients.forEach(ingredient => { %>
          <option value="<%= ingredient.food_name %>"><%= ingredient.food_name %> </option> 
    <% }) %>

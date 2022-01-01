@@ -1,12 +1,12 @@
-<h1 style="text-align: center; margin-top: 2%;">Logged Meals</h1>
+<h1 class="titleOutsideDiv">Logged Meals</h1>
 <div class="transparentDiv">
-  <h3><a style="color: black; text-decoration: underline; font-size: 30pt;" href="/meal/newMeal">Click to Create a New Meal</a></h3>
+  <p><a class="title" href="/meal/newMeal">Click to Create a New Meal</a></p>
 
   <% meals.forEach(meal => { %>
     <div class="logged"></div>
-  <h3>
-    <a style="color: black;font-size: 30pt;" href="/meal/<%= meal.dataValues.id %> "><%= meal.dataValues.name %></a>
-  </h3>
+  <h1>
+    <a class="loggedItems" href="/meal/<%= meal.dataValues.id %> "><%= meal.dataValues.name %></a>
+  </h1>
   <span id="edit">
   <a  id="editButt" class="submitButton" href="/meal/edit/<%= meal.dataValues.id %>">Edit</a>
   <form action="/meal/<%= meal.dataValues.id %>?_method=DELETE" method="post">

@@ -1,10 +1,11 @@
 <div class="transparentDiv">
 
-<h1><%= foundMeal.name %></h1>
+<p class="title"><%= foundMeal.name %></p>
 <h2>Ingredients:</h2>
 <% for(let i = 0; i < foundMeal.ingredient.length; i++) { %>
-    <ul><%= foundMeal.ingredient[i] %></ul>
+    <h3><%= foundMeal.ingredient[i] %></h3>
 <% } %> 
+<hr>
 <h2>Notes:</h2>
-<p><%= foundMeal.content %> </p>
+<h3><%= foundMeal.content %> </h3>
 </div>
