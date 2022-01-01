@@ -11,6 +11,10 @@ const isLoggedIn = require('./middleware/isLoggedIn')
 const methodOverride = require('method-override')
 const fs = require('fs')
 
+
+// CSS
+app.use('/public', express.static('public'));
+
 //allows you to use put and delete
 app.use(methodOverride('_method'))
 // views (ejs and layouts) set up
@@ -73,9 +77,12 @@ app.use('/favorites', require('./controllers/favorites'))
 app.use('/meal', require('./controllers/meal'))
 
 
-app.listen(process.env.PORT || 3000, ()=>{
+  app.listen(process.env.PORT || 3000, ()=>{
     console.log(`process.env.SUPER_SECRET_SECRET ${process.env.SUPER_SECRET_SECRET}`)
     console.log("auth_practice running on port 3000")
-})
-//bootstrap to make it look cute
-//workout edit and update routes
+})  
+
+
+
+
+

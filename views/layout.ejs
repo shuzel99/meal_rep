@@ -7,21 +7,25 @@
     <title>Meal Rep</title>
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href= "/public/assets/styles.css" rel="stylesheet" type="text/css" />
 
 </head>
 <body>
     <header>
         <!-- <h1>Express Authentication Boilerplate</h1> -->
-        <nav>
-            <ul>
+        <nav id="navBar">
+            
               <% if (!currentUser) { %>
-                <li><a href="/auth/signup">Signup</a></li>
-                <li><a href="/auth/login">Login</a></li>
+                <a class="navLink" href="/auth/signup">Signup</a>
+                <a class="navLink" href="/auth/login">Login</a>
               <% } else { %>
-                <li><a href="/auth/logout">Logout</a></li>
-                <li><a href="/profile">Profile</a></li>
+                <a class="navLink" href="/">Home</a>
+                <a class="navLink" href="/favorites">Favorites</a>
+                <a class="navLink" href="/meal/all">Meals</a>
+                <a class="navLink"  href="/profile">Profile</a>
+                <a class="navLink" href="/auth/logout">Logout</a>
               <% } %>
-            </ul>
+            
           </nav>
     </header>
     <%- include('partials/alerts') %>

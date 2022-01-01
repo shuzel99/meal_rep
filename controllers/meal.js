@@ -60,7 +60,7 @@ router.get('/edit/:idx', (req, res)=> {
    })
     .then(createdMeals => {
         let parsedMeals = createdMeals.dataValues
-        console.log('this is meals data', createdMeals.dataValues)
+       // console.log('this is meals data', createdMeals.dataValues)
         res.render('meals/edit', {meal: parsedMeals, mealId: req.params.idx})
        // console.log("this is the ingredient arrray", ingredients)
     })

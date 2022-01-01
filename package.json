@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js -e html,js,css"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +26,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.7.1",
+    "reload": "^3.2.0",
     "sequelize": "^6.3.5",
     "sequelize-cli": "^6.3.0"
   }
