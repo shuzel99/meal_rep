@@ -19,6 +19,9 @@ router.get('/all', isLoggedIn, (req, res) => {
         //console.log('this is meal', meal) 
             res.render('meals/indexMeal', {meals: meal})
         })
+        .catch(error => {
+            console.log(error)
+        })
 })
 
 // Create a new meal
@@ -60,7 +63,7 @@ router.get('/edit/:idx', (req, res)=> {
    })
     .then(createdMeals => {
         let parsedMeals = createdMeals.dataValues
-       // console.log('this is meals data', createdMeals.dataValues)
+        console.log('this is meals data', createdMeals.dataValues)
         res.render('meals/edit', {meal: parsedMeals, mealId: req.params.idx})
        // console.log("this is the ingredient arrray", ingredients)
     })
