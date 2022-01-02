@@ -36,7 +36,7 @@ router.post('/', isLoggedIn, (req, res) => {
         where: {userId: res.locals.currentUser.id}
     })
     .then(post => {
-        res.redirect(`/`)
+        res.redirect(`/meal/all`)
     })
     .catch(error => {
         console.log(error)

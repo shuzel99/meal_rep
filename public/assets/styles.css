@@ -93,13 +93,14 @@ body {
 #removeFrmMeal{
     font-size: 15pt;
     padding: 5pt;
+    margin-right: 20%;
 }
 #editButt{
+    position: absolute;
     font-size: 15pt;
     margin-top: 2%;
-    margin-right: 3%;
+    margin-left: 13%;
     padding: 10pt;
-    padding-top: 10pt;
     height: fit-content;
 }
 #edit{
@@ -126,5 +127,24 @@ body {
     font-size: 20pt;
 }
 #allMeals{
+    position: relative;
+    border-radius: 25px;
+    border: 4px solid #bc4b51;
+    padding: 20px;
     font-size: 20pt;
+    width: 20em;
+    min-height: fit-content;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin: auto;
+    top: 50%;
+    text-align: center; 
+}
+#linebreak{
+    background-color: #F7B378;
+}
+span + span{
+    margin-bottom: 10px;
+}
+#mealEdit{
+    margin-top: 2%;
 }
