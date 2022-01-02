@@ -4,7 +4,7 @@
     background-color: #264653;
     width: 100%;
     overflow: auto;
-    font-size: 24pt;
+    font-size: 20pt;
 }
 .title{
     text-decoration: underline;
@@ -14,9 +14,9 @@
 #mealRepLogo{
     position: absolute;
     display: inline-block;
-    margin-left: 35%;
+    margin-left: 37%;
     margin-top: 3%;
-    font-size: 90pt;
+    font-size: 65pt;
     font-family: 'Parisienne', cursive;
 }
 
@@ -55,13 +55,13 @@ body {
     border-radius: 25px;
     border: 4px solid #bc4b51;
     padding: 20px;
-    font-size: 40pt;
+    font-size: 35pt;
     width: 20em;
     min-height: fit-content;
     background-color: rgba(255, 255, 255, 0.5);
     margin: auto;
     top: 50%;
-    text-align: center;
+    text-align: center; 
 }
 
 
@@ -69,7 +69,7 @@ body {
     border-radius: 10px;
     border: none;
     height: 55pt;
-    font-size: 30pt;
+    font-size: 25pt;
     color: blanchedalmond;
     background-color: #bc4b51;
 }
@@ -91,14 +91,16 @@ body {
     padding-bottom: 4%;
 }
 #removeFrmMeal{
-    font-size: 20pt;
+    font-size: 15pt;
+    padding: 5pt;
 }
 #editButt{
-    font-size: 25pt;
+    font-size: 15pt;
+    margin-top: 2%;
     margin-right: 3%;
-    height: 55pt;
     padding: 10pt;
-    margin-top: auto;
+    padding-top: 10pt;
+    height: fit-content;
 }
 #edit{
     display: flex;
@@ -116,4 +118,13 @@ body {
 }
 #ingredientList{
     text-align: center;
+}
+#newMealFrm {
+    font-size: 20pt;
+}
+#faveFoodsFrm{
+    font-size: 20pt;
+}
+#allMeals{
+    font-size: 20pt;
 }

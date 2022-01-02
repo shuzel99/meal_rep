@@ -1,14 +1,14 @@
 <h1 class="titleOutsideDiv">Logged Meals</h1>
-<div class="transparentDiv">
+<div id="allMeals" class="transparentDiv">
   <p><a class="title" href="/meal/newMeal">Click to Create a New Meal</a></p>
 
   <% meals.forEach(meal => { %>
     <div class="logged"></div>
-  <h1>
+  <h2>
     <a class="loggedItems" href="/meal/<%= meal.dataValues.id %> "><%= meal.dataValues.name %></a>
-  </h1>
+  </h2>
   <span id="edit">
-  <a  id="editButt" class="submitButton" href="/meal/edit/<%= meal.dataValues.id %>">Edit</a>
+  <a id="editButt" class="submitButton" href="/meal/edit/<%= meal.dataValues.id %>">Edit</a>
   <form action="/meal/<%= meal.dataValues.id %>?_method=DELETE" method="post">
     <button data-inline="true" id="removeFrmMeal" class="submitButton" type="submit">Remove From Meals</button>
   </form>
