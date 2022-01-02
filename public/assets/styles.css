@@ -15,7 +15,7 @@
     position: absolute;
     display: inline-block;
     margin-left: 37%;
-    margin-top: 3%;
+    margin-top: 5%;
     font-size: 65pt;
     font-family: 'Parisienne', cursive;
 }
@@ -147,4 +147,7 @@ span + span{
 }
 #mealEdit{
     margin-top: 2%;
+}
+#smalltxt{
+    font-size: 12pt;
 }
