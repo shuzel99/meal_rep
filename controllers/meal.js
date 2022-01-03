@@ -14,7 +14,9 @@ nutritionix.init(appId, appKey)
 
 //shows all logged meal
 router.get('/all', isLoggedIn, (req, res) => {
-    db.meal.findAll() 
+    db.meal.findAll({
+        where: {userId: res.locals.currentUser.id}
+    }) 
     .then(meal => {
         //console.log('this is meal', meal) 
             res.render('meals/indexMeal', {meals: meal})
