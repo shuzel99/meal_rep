@@ -14,7 +14,9 @@ nutritionix.init(appId, appKey)
 
 //shows all logged meal
 router.get('/all', isLoggedIn, (req, res) => {
-    db.meal.findAll() 
+    db.meal.findAll({
+        where: {user_id: res.locals.currentUser.id}
+    }) 
     .then(meal => {
         //console.log('this is meal', meal) 
             res.render('meals/indexMeal', {meals: meal})
@@ -29,13 +31,14 @@ router.post('/', isLoggedIn, (req, res) => {
     // const data = JSON.parse(JSON.stringify(req.body))
     console.log('FOOD FORM: ADDED NEW', req.body)
     db.meal.create({
+        user_id: res.locals.currentUser.userId,
+        where: {user_id: res.locals.currentUser.id},
         name: req.body.name,
         content: req.body.content,
         ingredient: req.body.ingredients, //just added
-        userId: req.body.userId,
-        where: {userId: res.locals.currentUser.id}
     })
     .then(post => {
+        console.log("create a new meal post", post)
         res.redirect(`/meal/all`)
     })
     .catch(error => {
@@ -45,7 +48,9 @@ router.post('/', isLoggedIn, (req, res) => {
 
 //show form for making new meal
 router.get('/newMeal', isLoggedIn, (req, res) => {
-   db.food.findAll()
+   db.food.findAll({
+        where: {userId: res.locals.currentUser.id}
+   })
    .then(ingredients => {
     console.log('these are ingredients', ingredients)
     // console.log('this is curry goat', ingredients[0].food_name)
