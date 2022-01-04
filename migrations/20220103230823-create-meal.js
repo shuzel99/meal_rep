@@ -14,11 +14,11 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
-      userId: {
-        type: Sequelize.INTEGER
-      },
       ingredient: {
         type: Sequelize.ARRAY(Sequelize.STRING)
+      },
+      userId: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

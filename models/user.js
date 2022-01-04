@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt')
 const {
   Model
 } = require('sequelize');
+const db = require('.');
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     /**
@@ -14,8 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       models.user.hasMany(models.food)
-      models.user.hasMany(models.meal)
-
+      models.user.hasMany(models.meal, { targetKey: 'userId', constraints: false })
     }
   };
   user.init({

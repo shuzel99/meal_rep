@@ -14,9 +14,11 @@ nutritionix.init(appId, appKey)
 
 //shows all logged meal
 router.get('/all', isLoggedIn, (req, res) => {
-    db.meal.findAll() 
+    db.meal.findAll({
+        where: {userId: res.locals.currentUser.id}
+    }) 
     .then(meal => {
-        //console.log('this is meal', meal) 
+        console.log('this is res.locals', res.locals.currentUser.id) 
             res.render('meals/indexMeal', {meals: meal})
         })
         .catch(error => {
@@ -29,8 +31,8 @@ router.post('/', isLoggedIn, (req, res) => {
     // const data = JSON.parse(JSON.stringify(req.body))
     console.log('FOOD FORM: ADDED NEW', req.body)
     db.meal.create({
-        user_id: res.locals.currentUser.userId,
-        where: {user_id: res.locals.currentUser.id},
+        userId: res.locals.currentUser.id,
+        where: {userId: res.locals.currentUser.id},
         name: req.body.name,
         content: req.body.content,
         ingredient: req.body.ingredients, //just added

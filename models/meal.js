@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   meal.init({
     name: DataTypes.STRING,
     content: DataTypes.TEXT,
-    userId: DataTypes.INTEGER,
-    ingredient: DataTypes.ARRAY(DataTypes.STRING)
+    ingredient: DataTypes.ARRAY(DataTypes.STRING),
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'meal',
