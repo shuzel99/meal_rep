@@ -151,3 +151,43 @@ span + span{
 #smalltxt{
     font-size: 12pt;
 }
+
+@media only screen and (max-width: 400px){
+    #mealRepLogo{
+        font-size: 40pt;
+        margin-left: 20%;
+        margin-top: 20%;
+    }
+    [class*="transparentDiv"]{
+        position: absolute;
+        width: 18em;
+        font-size: 18px;
+        top: 30%;
+        margin-left: 8%;
+    }
+    [class*="submitButton"]{
+        height: 35pt;
+        margin-top: 2%;
+    }
+    #nutritionFacts{
+        font-size: 18px;
+        top: 10%;
+    }
+    #faveFoodsFrm, #newMealFrm, #allMeals{
+        font-size: 18px; ;
+        top: 13%;
+    }
+    #removeButt{
+        font-size: 12pt;
+    }
+    #editButt{
+        margin-left: 20%;
+    }
+    #navBar{
+        font-size: 15pt;
+    }
+    [class*="landingPage"]{
+        min-height: 100vh;
+    }
+}
+
